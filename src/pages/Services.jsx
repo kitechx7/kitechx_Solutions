@@ -37,7 +37,7 @@ const SERVICES = [
     color: 'rgba(255,60,120,0.08)',
     bg: 'linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%)',
     imgBg: 'linear-gradient(145deg, #ffe8f0, #ffd0e5)',
-    image: '././public/graphics.jpeg',
+    image: '/graphics.jpeg',
   },
   {
     icon: '🎬',
@@ -49,7 +49,7 @@ const SERVICES = [
     color: 'rgba(245,166,35,0.10)',
     bg: 'linear-gradient(135deg, #fffbea 0%, #fff3cc 100%)',
     imgBg: 'linear-gradient(145deg, #fff8e0, #fff0c0)',
-    image: '././public/ai-chatbot.jpeg',
+    image: 'ai-chatbot.jpeg',
   },
   {
     icon: '🔧',
@@ -61,7 +61,7 @@ const SERVICES = [
     color: 'rgba(91,63,248,0.08)',
     bg: 'linear-gradient(135deg, #f4f0ff 0%, #ebe4ff 100%)',
     imgBg: 'linear-gradient(145deg, #ece8ff, #ddd6ff)',
-    image: '././public/php-laravel.jpeg',
+    image: '/php-laravel.jpeg',
   },
   {
     icon: '🌐',
@@ -73,7 +73,7 @@ const SERVICES = [
     color: 'rgba(0,196,154,0.08)',
     bg: 'linear-gradient(135deg, #e8fff8 0%, #d5ffe f 100%)',
     imgBg: 'linear-gradient(145deg, #e0fff8, #ccffee)',
-    image: '././public/wordpress.jpeg',
+    image: '/wordpress.jpeg',
   },
   {
     icon: '☁️',
@@ -97,7 +97,7 @@ const SERVICES = [
     color: 'rgba(255,60,120,0.07)',
     bg: 'linear-gradient(135deg, #fff4f7 0%, #ffe8ee 100%)',
     imgBg: 'linear-gradient(145deg, #ffeaf0, #ffd8e6)',
-    image: '././public/security.jpeg',
+    image: '/security.jpeg',
   },
   {
     icon: '📣',
@@ -109,7 +109,7 @@ const SERVICES = [
     color: 'rgba(245,166,35,0.08)',
     bg: 'linear-gradient(135deg, #fffaea 0%, #fff5d0 100%)',
     imgBg: 'linear-gradient(145deg, #fff8e0, #fff2c0)',
-    image: '././public/social-media.jpeg',
+    image: '/social-media.jpeg',
   },
 ]
 
