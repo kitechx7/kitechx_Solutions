@@ -205,13 +205,13 @@ export default function Contact() {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Full Name *</label>
-                      <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="John Doe"
+                      <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="Enter your name"
                         style={errors.name ? { borderColor: 'var(--clr-accent2)' } : {}} />
                       {errors.name && <span style={{ fontSize: '0.75rem', color: 'var(--clr-accent2)' }}>{errors.name}</span>}
                     </div>
                     <div className="form-group">
                       <label>Email Address *</label>
-                      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="john@company.com"
+                      <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="Enter your email"
                         style={errors.email ? { borderColor: 'var(--clr-accent2)' } : {}} />
                       {errors.email && <span style={{ fontSize: '0.75rem', color: 'var(--clr-accent2)' }}>{errors.email}</span>}
                     </div>
@@ -220,7 +220,7 @@ export default function Contact() {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Phone / WhatsApp</label>
-                      <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 234 567 8900" />
+                      <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="Enter your phone no" />
                     </div>
                     <div className="form-group">
                       <label>Service Required</label>

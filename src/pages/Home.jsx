@@ -15,7 +15,7 @@ const FEATURED_SERVICES = [
     color: 'rgba(91,63,248,0.10)',
     bg: 'linear-gradient(135deg, #f0eeff 0%, #e8e0ff 100%)',
     imgBg: 'linear-gradient(145deg, #ede8ff, #d8d0ff)',
-    image: '././public/mern-stack.jpeg',
+    image: '/mern-stack.jpeg',
   },
   {
     icon: '📈',
@@ -27,7 +27,7 @@ const FEATURED_SERVICES = [
     color: 'rgba(0,196,154,0.10)',
     bg: 'linear-gradient(135deg, #e6fff9 0%, #d0fff0 100%)',
     imgBg: 'linear-gradient(145deg, #e0fff6, #c8ffec)',
-    image: '././public/SEO.jpeg',
+    image: '/SEO.jpeg',
   },
   {
     icon: '🎨',
@@ -39,7 +39,7 @@ const FEATURED_SERVICES = [
     color: 'rgba(255,60,120,0.08)',
     bg: 'linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%)',
     imgBg: 'linear-gradient(145deg, #ffe8f0, #ffd0e5)',
-    image: '././public/graphics.jpeg',
+    image: '/graphics.jpeg',
   },
 ]
 

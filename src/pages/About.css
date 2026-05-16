@@ -273,8 +273,9 @@
 }
 
 /* FOUNDERS SECTION */
+/* Fix root overflow */
 .founders-section {
-  padding: 8rem 2rem;
+  padding: 5rem 1rem;
   background: var(--clr-bg2);
   position: relative;
   overflow: hidden;
@@ -282,12 +283,14 @@
 
 .founders-grid {
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 4rem auto 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 2rem;
   position: relative;
   z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .founder-card {
@@ -297,7 +300,51 @@
   padding: 2.5rem 1.5rem;
   text-align: center;
   transition: var(--transition);
-  animation: fadeUp 0.6s ease both;
+  box-sizing: border-box;  /* ADD THIS */
+  width: 100%;             /* ADD THIS */
+  min-width: 0;            /* ADD THIS */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .founders-section {
+    padding: 4rem 1rem;
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 2rem auto 0;
+  }
+
+  .founder-card {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .founder-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .founder-initials {
+    font-size: 1.5rem;
+  }
+
+  .founder-name {
+    font-size: 0.85rem;
+  }
+
+  .founder-role {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .founder-card:hover {
@@ -355,4 +402,17 @@
 
 @media (max-width: 600px) {
   .founders-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .founders-grid {
+    grid-template-columns: 1fr 1fr;
+    overflow-x: hidden;
+    padding: 0 1rem;
+  }
+
+  .founder-card {
+    width: 100%;
+    min-width: unset;
+  }
 }
