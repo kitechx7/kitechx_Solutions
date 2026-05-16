@@ -5,23 +5,41 @@ import './Home.css'
 
 
 const FEATURED_SERVICES = [
-  {
+    {
     icon: '⚡',
+    emoji: '🖥️',
     label: 'MERN Stack Development',
-    desc: 'Full-stack web apps with MongoDB, Express, React & Node.js — fast, scalable, modern architecture built for growth.',
+    category: 'Web Development',
+    desc: 'Full-stack web apps built with MongoDB, Express, React & Node.js — fast, scalable, and modern. We architect solutions that grow with your business.',
+    features: ['Custom React SPA & dashboards', 'RESTful & GraphQL APIs', 'MongoDB database design', 'Real-time features with Socket.io'],
     color: 'rgba(91,63,248,0.10)',
+    bg: 'linear-gradient(135deg, #f0eeff 0%, #e8e0ff 100%)',
+    imgBg: 'linear-gradient(145deg, #ede8ff, #d8d0ff)',
+    image: '././public/mern-stack.jpeg',
   },
   {
     icon: '📈',
+    emoji: '📊',
     label: 'SEO Optimization',
-    desc: 'Dominate search rankings with data-driven SEO strategies, technical audits, and on-page mastery that deliver real ROI.',
+    category: 'Digital Marketing',
+    desc: 'Dominate search rankings with our data-driven SEO strategies. From technical audits to link building — we deliver measurable organic growth.',
+    features: ['Technical SEO audits', 'On-page & off-page optimization', 'Keyword research & strategy', 'Monthly analytics reporting'],
     color: 'rgba(0,196,154,0.10)',
+    bg: 'linear-gradient(135deg, #e6fff9 0%, #d0fff0 100%)',
+    imgBg: 'linear-gradient(145deg, #e0fff6, #c8ffec)',
+    image: '././public/SEO.jpeg',
   },
   {
     icon: '🎨',
+    emoji: '✏️',
     label: 'Graphics & Branding',
-    desc: 'Stunning logos, brand identities, UI/UX design, and marketing visuals that convert visitors into loyal customers.',
+    category: 'Design',
+    desc: 'Stunning logos, brand identities, UI/UX design, and marketing visuals that make your brand unforgettable and convert visitors into customers.',
+    features: ['Logo & brand identity', 'UI/UX prototyping', 'Social media design kits', 'Print & marketing collateral'],
     color: 'rgba(255,60,120,0.08)',
+    bg: 'linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%)',
+    imgBg: 'linear-gradient(145deg, #ffe8f0, #ffd0e5)',
+    image: '././public/graphics.jpeg',
   },
 ]
 
@@ -120,18 +138,58 @@ export default function Home() {
           <p>From development to marketing — we're your full-stack digital partner.</p>
         </div>
 
-        <div className="home-services-grid" style={{ position: 'relative', zIndex: 1 }}>
-          {FEATURED_SERVICES.map(s => (
-            <div key={s.label} className="home-service-card">
-              <div className="hs-icon-wrap" style={{ background: s.color }}>
-                {s.icon}
-              </div>
-              <div className="hs-arrow">→</div>
-              <h3>{s.label}</h3>
-              <p>{s.desc}</p>
-            </div>
-          ))}
-        </div>
+               <div className="services-grid">
+                  {FEATURED_SERVICES.map(s => (
+                    <div key={s.label} className="svc-card">
+                      {/* IMAGE AREA */}
+                      <div className="svc-image-wrap">
+                        {s.image ? (
+                          <img
+                            src={s.image}
+                            alt={s.label}
+                            className="svc-real-img"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none'
+                              e.currentTarget.nextElementSibling.style.display = 'flex'
+                            }}
+                          />
+                        ) : (
+                          <div className="svc-image-bg" style={{ background: s.imgBg }}>
+                            <span style={{ fontSize: '6rem' }}>{s.emoji}</span>
+                          </div>
+                        )}
+                        <div className="svc-image-overlay" />
+                        <span className="svc-image-tag">{s.category}</span>
+                      </div>
+        
+                      {/* BODY */}
+                      <div className="svc-body">
+                        <div className="svc-icon-row">
+                          <div className="svc-icon" style={{ background: s.color }}>
+                            {s.icon}
+                          </div>
+                          <span className="svc-category">{s.category}</span>
+                        </div>
+        
+                        <h3>{s.label}</h3>
+                        <p>{s.desc}</p>
+        
+                        <div className="svc-features">
+                          {s.features.map(f => (
+                            <div key={f} className="svc-feature">
+                              <span className="svc-feature-dot" />
+                              {f}
+                            </div>
+                          ))}
+                        </div>
+        
+                        <Link to="/contact" className="svc-cta">
+                          Get a Quote →
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
         <div className="explore-btn-wrap" style={{ position: 'relative', zIndex: 1 }}>
           <Link to="/services" className="btn-outline">

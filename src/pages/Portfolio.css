@@ -194,6 +194,32 @@
 }
 
 /* ── Main Section ───────────────────────────────────────── */
+
+/* Visit Overlay — dark se transparent */
+.portfolio-visit-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(91, 63, 248, 0.15);  /* very light purple */
+  backdrop-filter: blur(6px);            /* blur effect */
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  border-radius: 0;
+}
+
+
 .portfolio-main {
   padding: 5rem 2rem 6rem;
   max-width: 1200px;
@@ -216,6 +242,8 @@
 
 /* ── Scroll Reveal Base ─────────────────────────────────── */
 /* JS adds .is-visible to trigger these */
+
+/* Reveal base */
 .reveal {
   opacity: 0;
   transform: translateY(36px);
@@ -223,19 +251,33 @@
               transform 0.65s cubic-bezier(0.22,1,0.36,1);
 }
 .reveal.is-visible {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Cards after reveal — hover must NOT fight opacity */
-.portfolio-card.reveal.is-visible {
-  opacity: 1 !important;
-  transform: none;
+.portfolio-card {
+  background: var(--clr-surface);
+  border-radius: 16px;
+  border: 1px solid var(--clr-border);
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform;
+  transition:
+    transform    0.35s cubic-bezier(0.22,1,0.36,1),
+    box-shadow   0.35s cubic-bezier(0.22,1,0.36,1),
+    border-color 0.3s ease;
+    /* opacity hata diya — reveal handle karega */
 }
-.portfolio-card.reveal.is-visible:hover,
-.portfolio-card.reveal.is-visible.card-hovered {
+
+.portfolio-card.reveal.is-visible:hover {
   opacity: 1 !important;
-  transform: translateY(-8px) scale(1.012);
+  transform: translateY(-8px) scale(1.012) !important;
+  box-shadow:
+    0 4px 12px rgba(91,63,248,0.06),
+    0 16px 40px rgba(91,63,248,0.12),
+    0 0 0 1px var(--clr-primary-light);
+  border-color: var(--clr-primary-light);
 }
 .reveal-left {
   opacity: 0;
@@ -339,11 +381,12 @@
 /* Shine sweep on hover */
 .portfolio-card-image {
   position: relative;
-  height: 200px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-size: cover;
 }
 .portfolio-card-image::after {
   content: '';
@@ -373,13 +416,14 @@
 .portfolio-real-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;        /* cover ki jagah contain — zoom nahi hoga */
+  object-position: center;
+  padding: 8px;               /* thoda space around image */
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
 }
 .portfolio-card:hover .portfolio-real-img {
-  transform: scale(1.06);
+  transform: scale(1.02);     /* subtle — zyada zoom nahi */
 }
-
 .portfolio-emoji-wrap {
   display: flex;
   align-items: center;
@@ -450,19 +494,21 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: rgba(58,31,204,0.88);
+  background: rgba(255, 255, 255, 0.08);  /* almost transparent */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  color: var(--clr-white);
+  color: #ffffff;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  letter-spacing: 0.02em;
+  transition: opacity 0.35s ease;
+  letter-spacing: 0.04em;
   pointer-events: none;
 }
 .portfolio-card:hover .portfolio-visit-overlay {
@@ -470,11 +516,13 @@
   pointer-events: auto;
 }
 
+/* Visit icon animation */
 .visit-icon {
   font-size: 2rem;
   line-height: 1;
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  filter: drop-shadow(0 2px 8px rgba(255,255,255,0.4));
 }
 .portfolio-card:hover .visit-icon {
   transform: translateY(-4px) scale(1.15);

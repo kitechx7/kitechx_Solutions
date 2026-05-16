@@ -47,8 +47,7 @@
   color: #fff;
   box-shadow: 0 4px 18px rgba(91, 63, 248, 0.38);
   flex-shrink: 0;
-}
-
+}  
 .logo-wordmark {
   font-family: var(--font-display);
   font-size: 1.75rem;
@@ -140,9 +139,15 @@
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* MOBILE MENU */
+/* MOBILE MENU — fix karo */
 .mobile-menu {
   display: none;
   flex-direction: column;
+  position: fixed;        /* ADD - normal flow se bahar */
+  top: 76px;             /* ADD - navbar height ke baad */
+  left: 0;               /* ADD */
+  right: 0;              /* ADD */
+  z-index: 999;          /* ADD - navbar ke neeche */
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(91, 63, 248, 0.10);

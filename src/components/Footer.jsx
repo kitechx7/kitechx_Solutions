@@ -46,7 +46,7 @@ export default function Footer() {
           <h4>Contact</h4>
           <div className="footer-contact-item">
             <span className="icon">📧</span>
-            <span>kitechx7@gmail.com</span>
+            <span>muqadas@kitechxsolutions.com</span>
           </div>
           <div className="footer-contact-item">
             <span className="icon">📍</span>
