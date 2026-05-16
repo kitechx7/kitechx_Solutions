@@ -13,7 +13,7 @@ const SERVICES = [
     color: 'rgba(91,63,248,0.10)',
     bg: 'linear-gradient(135deg, #f0eeff 0%, #e8e0ff 100%)',
     imgBg: 'linear-gradient(145deg, #ede8ff, #d8d0ff)',
-    image: '././public/mern-stack.jpeg',
+    image: '/mern-stack.jpeg',
   },
   {
     icon: '📈',
@@ -25,7 +25,7 @@ const SERVICES = [
     color: 'rgba(0,196,154,0.10)',
     bg: 'linear-gradient(135deg, #e6fff9 0%, #d0fff0 100%)',
     imgBg: 'linear-gradient(145deg, #e0fff6, #c8ffec)',
-    image: '././public/SEO.jpeg',
+    image: '/SEO.jpeg',
   },
   {
     icon: '🎨',
@@ -49,7 +49,7 @@ const SERVICES = [
     color: 'rgba(245,166,35,0.10)',
     bg: 'linear-gradient(135deg, #fffbea 0%, #fff3cc 100%)',
     imgBg: 'linear-gradient(145deg, #fff8e0, #fff0c0)',
-    image: 'ai-chatbot.jpeg',
+    image: '/ai-chatbot.jpeg',
   },
   {
     icon: '🔧',
@@ -85,7 +85,7 @@ const SERVICES = [
     color: 'rgba(107,143,255,0.10)',
     bg: 'linear-gradient(135deg, #eef2ff 0%, #e2e9ff 100%)',
     imgBg: 'linear-gradient(145deg, #e8eeff, #d8e4ff)',
-    image: '././public/devops.jpeg',
+    image: '/devops.jpeg',
   },
   {
     icon: '🛡️',
