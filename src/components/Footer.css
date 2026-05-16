@@ -27,15 +27,35 @@
   gap: 3rem;
   margin-bottom: 4rem;
 }
+.footer-brand .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  margin-bottom: 1rem; /* spacing before tagline/description */
+}
 
+/* Keep the gradient wordmark from before, scoped to footer */
 .footer-brand .logo-wordmark {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.4rem;          /* match navbar size visually */
   letter-spacing: 0.05em;
-  background: linear-gradient(135deg, #fff, rgba(155,127,255,1));
+  background: linear-gradient(135deg, #fff, rgba(155, 127, 255, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Icon box — same purple pill as navbar */
+.footer-brand .logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-deep));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .footer-brand p {

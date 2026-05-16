@@ -96,6 +96,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .vm-card {
@@ -106,6 +108,9 @@
   position: relative;
   overflow: hidden;
   transition: var(--transition);
+  box-sizing: border-box;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .vm-card::before {
@@ -419,17 +424,18 @@
   }
 }
 
-/* =========================================
+/* ====================================================
    RESPONSIVE BREAKPOINTS
-   ========================================= */
+   ==================================================== */
 
-@media (max-width: 1280px) {
+/* ---- Tablet landscape / small desktop (≤ 1100px) ---- */
+@media (max-width: 1100px) {
   .founders-section {
     padding: 70px 32px;
   }
 
   .founders-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
@@ -437,16 +443,35 @@
     width: 80px;
     height: 80px;
   }
+
+  .vm-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 1024px) {
-  .founders-section {
-    padding: 60px 28px;
+/* ---- Tablet portrait (≤ 900px) ---- */
+@media (max-width: 900px) {
+  .about-hero {
+    padding: clamp(5rem, 10vw, 8rem) 1.5rem clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .vm-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .vm-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+
+  .vm-card {
+    padding: 2rem 1.75rem;
   }
 
   .founders-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 1.2rem;
     max-width: 720px;
   }
 
@@ -455,23 +480,33 @@
     height: 86px;
   }
 
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .blob {
     width: 350px !important;
     height: 350px !important;
   }
-
-  .vm-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
-@media (max-width: 768px) {
+/* ---- Large phone (≤ 600px) ---- */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: clamp(1.6rem, 6.5vw, 2rem);
+  }
+
   .about-hero {
-    padding: 8rem 1.5rem 4rem;
+    min-height: 80vh;
+    padding: 5.5rem 1.25rem 3.5rem;
+  }
+
+  .about-hero-content h1 {
+    font-size: clamp(1.9rem, 8vw, 2.8rem);
   }
 
   .founders-section {
-    padding: 56px 24px;
+    padding: 48px 20px;
   }
 
   .section-header {
@@ -480,26 +515,22 @@
 
   .founders-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    max-width: 480px;
+    gap: 1rem;
+    max-width: 100%;
     padding: 0;
     overflow-x: hidden;
   }
 
   .founder-card {
-    padding: 24px 14px;
+    padding: 1.25rem 0.75rem;
     border-radius: 16px;
     width: 100%;
     min-width: unset;
   }
 
   .founder-avatar {
-    width: 80px;
-    height: 80px;
-  }
-
-  .founder-initials {
-    font-size: 1.5rem;
+    width: 72px;
+    height: 72px;
   }
 
   .founder-name {
@@ -510,50 +541,62 @@
     font-size: 0.75rem;
   }
 
-  .blob {
-    width: 280px !important;
-    height: 280px !important;
-    left: -60px !important;
-    filter: blur(60px);
-  }
-}
-
-@media (max-width: 600px) {
-  .founders-section {
-    padding: 48px 20px;
+  .vm-section {
+    padding: 4rem 1.25rem;
   }
 
-  .founders-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+  .vm-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
     max-width: 100%;
+    margin: 2.5rem auto 0;
   }
 
-  .founder-card {
-    padding: 20px 10px;
-    gap: 10px;
+  .vm-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
   }
 
-  .founder-avatar {
-    width: 70px;
-    height: 70px;
+  .vm-card h3 {
+    font-size: 1.2rem;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
-  .founder-name {
-    font-size: 0.85rem;
+  .vm-card p {
+    font-size: 0.88rem;
   }
 
-  .founder-role {
-    font-size: 0.72rem;
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reach-countries {
+    gap: 0.45rem;
+  }
+
+  .country-tag {
+    padding: 7px 14px;
   }
 
   .blob {
     width: 220px !important;
     height: 220px !important;
+    left: -60px !important;
+    filter: blur(60px);
   }
 }
 
-@media (max-width: 420px) {
+/* ---- Small phone (≤ 480px) ---- */
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .about-hero-content h1 {
+    font-size: clamp(1.65rem, 9vw, 2.3rem);
+  }
+
   .founders-section {
     padding: 40px 16px;
   }
@@ -564,18 +607,18 @@
 
   .founders-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 0.85rem;
   }
 
   .founder-card {
-    padding: 18px 8px;
-    border-radius: 14px;
+    padding: 1rem 0.6rem;
+    border-radius: var(--radius);
     gap: 8px;
   }
 
   .founder-avatar {
-    width: 60px;
-    height: 60px;
+    width: 62px;
+    height: 62px;
     border-width: 1.5px;
   }
 
@@ -588,7 +631,24 @@
   }
 
   .founder-role {
-    font-size: 0.67rem;
+    font-size: 0.72rem;
+  }
+
+  .vm-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .vm-card {
+    padding: 1.4rem;
+  }
+
+  .value-card {
+    padding: 1.4rem;
+  }
+
+  .btn-primary {
+    padding: 12px 24px;
+    font-size: 0.88rem;
   }
 
   .blob {
@@ -596,6 +656,7 @@
   }
 }
 
+/* ---- Extra small (≤ 380px) ---- */
 @media (max-width: 380px) {
   .founders-grid {
     grid-template-columns: 1fr;
@@ -608,5 +669,13 @@
   .founder-avatar {
     width: 56px;
     height: 56px;
+  }
+}
+
+/* ---- Landscape phone ---- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .about-hero {
+    min-height: unset;
+    padding: 4rem 2rem 3rem;
   }
 }

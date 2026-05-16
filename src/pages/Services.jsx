@@ -1,139 +1,248 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './Services.css'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Services.css";
 
 const SERVICES = [
   {
-    icon: '⚡',
-    emoji: '🖥️',
-    label: 'MERN Stack Development',
-    category: 'Web Development',
-    desc: 'Full-stack web apps built with MongoDB, Express, React & Node.js — fast, scalable, and modern. We architect solutions that grow with your business.',
-    features: ['Custom React SPA & dashboards', 'RESTful & GraphQL APIs', 'MongoDB database design', 'Real-time features with Socket.io'],
-    color: 'rgba(91,63,248,0.10)',
-    bg: 'linear-gradient(135deg, #f0eeff 0%, #e8e0ff 100%)',
-    imgBg: 'linear-gradient(145deg, #ede8ff, #d8d0ff)',
-    image: '/mern-stack.jpeg',
+    icon: "⚡",
+    emoji: "🖥️",
+    label: "MERN Stack Development",
+    category: "Web Development",
+    desc: "Full-stack web apps built with MongoDB, Express, React & Node.js — fast, scalable, and modern. We architect solutions that grow with your business.",
+    features: [
+      "Custom React SPA & dashboards",
+      "RESTful & GraphQL APIs",
+      "MongoDB database design",
+      "Real-time features with Socket.io",
+    ],
+    color: "rgba(91,63,248,0.10)",
+    bg: "linear-gradient(135deg, #f0eeff 0%, #e8e0ff 100%)",
+    imgBg: "linear-gradient(145deg, #ede8ff, #d8d0ff)",
+    image: "/mern-stack.jpeg",
   },
   {
-    icon: '📈',
-    emoji: '📊',
-    label: 'SEO Optimization',
-    category: 'Digital Marketing',
-    desc: 'Dominate search rankings with our data-driven SEO strategies. From technical audits to link building — we deliver measurable organic growth.',
-    features: ['Technical SEO audits', 'On-page & off-page optimization', 'Keyword research & strategy', 'Monthly analytics reporting'],
-    color: 'rgba(0,196,154,0.10)',
-    bg: 'linear-gradient(135deg, #e6fff9 0%, #d0fff0 100%)',
-    imgBg: 'linear-gradient(145deg, #e0fff6, #c8ffec)',
-    image: '/SEO.jpeg',
+    icon: "📈",
+    emoji: "📊",
+    label: "SEO Optimization",
+    category: "Digital Marketing",
+    desc: "Dominate search rankings with our data-driven SEO strategies. From technical audits to link building — we deliver measurable organic growth.",
+    features: [
+      "Technical SEO audits",
+      "On-page & off-page optimization",
+      "Keyword research & strategy",
+      "Monthly analytics reporting",
+    ],
+    color: "rgba(0,196,154,0.10)",
+    bg: "linear-gradient(135deg, #e6fff9 0%, #d0fff0 100%)",
+    imgBg: "linear-gradient(145deg, #e0fff6, #c8ffec)",
+    image: "/SEO.jpeg",
   },
   {
-    icon: '🎨',
-    emoji: '✏️',
-    label: 'Graphics & Branding',
-    category: 'Design',
-    desc: 'Stunning logos, brand identities, UI/UX design, and marketing visuals that make your brand unforgettable and convert visitors into customers.',
-    features: ['Logo & brand identity', 'UI/UX prototyping', 'Social media design kits', 'Print & marketing collateral'],
-    color: 'rgba(255,60,120,0.08)',
-    bg: 'linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%)',
-    imgBg: 'linear-gradient(145deg, #ffe8f0, #ffd0e5)',
-    image: '/graphics.jpeg',
+    icon: "🎨",
+    emoji: "✏️",
+    label: "Graphics & Branding",
+    category: "Design",
+    desc: "Stunning logos, brand identities, UI/UX design, and marketing visuals that make your brand unforgettable and convert visitors into customers.",
+    features: [
+      "Logo & brand identity",
+      "UI/UX prototyping",
+      "Social media design kits",
+      "Print & marketing collateral",
+    ],
+    color: "rgba(255,60,120,0.08)",
+    bg: "linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%)",
+    imgBg: "linear-gradient(145deg, #ffe8f0, #ffd0e5)",
+    image: "/graphics.jpeg",
   },
   {
-    icon: '🎬',
-    emoji: '🎞️',
-    label: 'AI Chatbots',
-    category: 'Video Production',
-    desc: 'Next-gen animated explainer videos and product demos powered by cutting-edge AI tools — crafted to convert, captivate, and communicate.',
-    features: ['AI-generated animations', 'Professional voiceovers', 'Product explainer videos', 'Social media video ads'],
-    color: 'rgba(245,166,35,0.10)',
-    bg: 'linear-gradient(135deg, #fffbea 0%, #fff3cc 100%)',
-    imgBg: 'linear-gradient(145deg, #fff8e0, #fff0c0)',
-    image: '/ai-chatbot.jpeg',
+    icon: "🎬",
+    emoji: "🎞️",
+    label: "AI Chatbots",
+    category: "Video Production",
+    desc: "Next-gen animated explainer videos and product demos powered by cutting-edge AI tools — crafted to convert, captivate, and communicate.",
+    features: [
+      "AI-generated animations",
+      "Professional voiceovers",
+      "Product explainer videos",
+      "Social media video ads",
+    ],
+    color: "rgba(245,166,35,0.10)",
+    bg: "linear-gradient(135deg, #fffbea 0%, #fff3cc 100%)",
+    imgBg: "linear-gradient(145deg, #fff8e0, #fff0c0)",
+    image: "/ai-chatbot.jpeg",
   },
   {
-    icon: '🔧',
-    emoji: '⚙️',
-    label: 'PHP & Laravel Development',
-    category: 'Backend Development',
-    desc: 'Robust, enterprise-grade backend systems and RESTful APIs using PHP & Laravel. Secure, scalable, and perfectly architected for your needs.',
-    features: ['Custom Laravel applications', 'CRM & ERP systems', 'Payment gateway integration', 'Admin panels & dashboards'],
-    color: 'rgba(91,63,248,0.08)',
-    bg: 'linear-gradient(135deg, #f4f0ff 0%, #ebe4ff 100%)',
-    imgBg: 'linear-gradient(145deg, #ece8ff, #ddd6ff)',
-    image: '/php-laravel.jpeg',
+    icon: "🔧",
+    emoji: "⚙️",
+    label: "PHP & Laravel Development",
+    category: "Backend Development",
+    desc: "Robust, enterprise-grade backend systems and RESTful APIs using PHP & Laravel. Secure, scalable, and perfectly architected for your needs.",
+    features: [
+      "Custom Laravel applications",
+      "CRM & ERP systems",
+      "Payment gateway integration",
+      "Admin panels & dashboards",
+    ],
+    color: "rgba(91,63,248,0.08)",
+    bg: "linear-gradient(135deg, #f4f0ff 0%, #ebe4ff 100%)",
+    imgBg: "linear-gradient(145deg, #ece8ff, #ddd6ff)",
+    image: "/php-laravel.jpeg",
   },
   {
-    icon: '🌐',
-    emoji: '💻',
-    label: 'WordPress Websites',
-    category: 'CMS Development',
-    desc: 'Beautiful, fast, and SEO-optimized WordPress websites for any business — from portfolio sites to full e-commerce stores with WooCommerce.',
-    features: ['Custom theme development', 'WooCommerce stores', 'Plugin development', 'Speed & performance optimization'],
-    color: 'rgba(0,196,154,0.08)',
-    bg: 'linear-gradient(135deg, #e8fff8 0%, #d5ffe f 100%)',
-    imgBg: 'linear-gradient(145deg, #e0fff8, #ccffee)',
-    image: '/wordpress.jpeg',
+    icon: "🌐",
+    emoji: "💻",
+    label: "WordPress Websites",
+    category: "CMS Development",
+    desc: "Beautiful, fast, and SEO-optimized WordPress websites for any business — from portfolio sites to full e-commerce stores with WooCommerce.",
+    features: [
+      "Custom theme development",
+      "WooCommerce stores",
+      "Plugin development",
+      "Speed & performance optimization",
+    ],
+    color: "rgba(0,196,154,0.08)",
+    bg: "linear-gradient(135deg, #e8fff8 0%, #d5ffe f 100%)",
+    imgBg: "linear-gradient(145deg, #e0fff8, #ccffee)",
+    image: "/wordpress.jpeg",
   },
   {
-    icon: '☁️',
-    emoji: '🚀',
-    label: 'Deployment & DevOps',
-    category: 'Cloud Infrastructure',
-    desc: 'Seamless cloud deployment on AWS, Vercel, and DigitalOcean with CI/CD pipelines, auto-scaling, and 99.9% uptime monitoring.',
-    features: ['AWS & DigitalOcean setup', 'CI/CD pipeline automation', 'Docker & container deployment', '24/7 uptime monitoring'],
-    color: 'rgba(107,143,255,0.10)',
-    bg: 'linear-gradient(135deg, #eef2ff 0%, #e2e9ff 100%)',
-    imgBg: 'linear-gradient(145deg, #e8eeff, #d8e4ff)',
-    image: '/devops.jpeg',
+    icon: "☁️",
+    emoji: "🚀",
+    label: "Deployment & DevOps",
+    category: "Cloud Infrastructure",
+    desc: "Seamless cloud deployment on AWS, Vercel, and DigitalOcean with CI/CD pipelines, auto-scaling, and 99.9% uptime monitoring.",
+    features: [
+      "AWS & DigitalOcean setup",
+      "CI/CD pipeline automation",
+      "Docker & container deployment",
+      "24/7 uptime monitoring",
+    ],
+    color: "rgba(107,143,255,0.10)",
+    bg: "linear-gradient(135deg, #eef2ff 0%, #e2e9ff 100%)",
+    imgBg: "linear-gradient(145deg, #e8eeff, #d8e4ff)",
+    image: "/devops.jpeg",
   },
   {
-    icon: '🛡️',
-    emoji: '🔒',
-    label: 'Maintenance & Security',
-    category: 'Support',
-    desc: 'Continuous website monitoring, security hardening, updates, and backups — so you can focus on your business while we keep you protected.',
-    features: ['Monthly security audits', 'Automated backups', 'Performance monitoring', 'Bug fixes & updates'],
-    color: 'rgba(255,60,120,0.07)',
-    bg: 'linear-gradient(135deg, #fff4f7 0%, #ffe8ee 100%)',
-    imgBg: 'linear-gradient(145deg, #ffeaf0, #ffd8e6)',
-    image: '/security.jpeg',
+    icon: "🛡️",
+    emoji: "🔒",
+    label: "Maintenance & Security",
+    category: "Support",
+    desc: "Continuous website monitoring, security hardening, updates, and backups — so you can focus on your business while we keep you protected.",
+    features: [
+      "Monthly security audits",
+      "Automated backups",
+      "Performance monitoring",
+      "Bug fixes & updates",
+    ],
+    color: "rgba(255,60,120,0.07)",
+    bg: "linear-gradient(135deg, #fff4f7 0%, #ffe8ee 100%)",
+    imgBg: "linear-gradient(145deg, #ffeaf0, #ffd8e6)",
+    image: "/security.jpeg",
   },
   {
-    icon: '📣',
-    emoji: '📱',
-    label: 'Social Media Marketing',
-    category: 'Marketing',
-    desc: 'Strategic content creation, paid ads management, and growth hacking across all major platforms — turning followers into customers.',
-    features: ['Content strategy & creation', 'Paid social campaigns', 'Community management', 'Analytics & reporting'],
-    color: 'rgba(245,166,35,0.08)',
-    bg: 'linear-gradient(135deg, #fffaea 0%, #fff5d0 100%)',
-    imgBg: 'linear-gradient(145deg, #fff8e0, #fff2c0)',
-    image: '/social-media.jpeg',
+    icon: "📣",
+    emoji: "📱",
+    label: "Social Media Marketing",
+    category: "Marketing",
+    desc: "Strategic content creation, paid ads management, and growth hacking across all major platforms — turning followers into customers.",
+    features: [
+      "Content strategy & creation",
+      "Paid social campaigns",
+      "Community management",
+      "Analytics & reporting",
+    ],
+    color: "rgba(245,166,35,0.08)",
+    bg: "linear-gradient(135deg, #fffaea 0%, #fff5d0 100%)",
+    imgBg: "linear-gradient(145deg, #fff8e0, #fff2c0)",
+    image: "/social-media.jpeg",
   },
-]
+];
 
 const WHY_POINTS = [
-  { icon: '🎯', title: 'Results-Driven Approach', desc: 'Every decision is backed by data and geared toward measurable outcomes for your business.' },
-  { icon: '⚡', title: 'Rapid Delivery', desc: 'Agile sprints with weekly updates — we move fast without sacrificing quality.' },
-  { icon: '🤝', title: 'Dedicated Team', desc: 'A dedicated point of contact and expert team assigned to every project.' },
-  { icon: '🔍', title: 'Full Transparency', desc: 'Live dashboards, regular reports, and zero surprises. You are always in the loop.' },
-]
+  {
+    icon: "🎯",
+    title: "Results-Driven Approach",
+    desc: "Every decision is backed by data and geared toward measurable outcomes for your business.",
+  },
+  {
+    icon: "⚡",
+    title: "Rapid Delivery",
+    desc: "Agile sprints with weekly updates — we move fast without sacrificing quality.",
+  },
+  {
+    icon: "🤝",
+    title: "Dedicated Team",
+    desc: "A dedicated point of contact and expert team assigned to every project.",
+  },
+  {
+    icon: "🔍",
+    title: "Full Transparency",
+    desc: "Live dashboards, regular reports, and zero surprises. You are always in the loop.",
+  },
+];
 
 const PROCESS = [
-  { icon: '🔍', title: 'Discovery', desc: 'Goals, audience, and requirements.', n: '01' },
-  { icon: '✏️', title: 'Design', desc: 'Wireframes & UI/UX prototypes.', n: '02' },
-  { icon: '⚙️', title: 'Develop', desc: 'Agile sprints, weekly demos.', n: '03' },
-  { icon: '🧪', title: 'Test', desc: 'QA, performance & security.', n: '04' },
-  { icon: '🚀', title: 'Deploy', desc: 'Launch with CI/CD & monitoring.', n: '05' },
-]
+  {
+    icon: "🔍",
+    title: "Discovery",
+    desc: "Goals, audience, and requirements.",
+    n: "01",
+  },
+  {
+    icon: "✏️",
+    title: "Design",
+    desc: "Wireframes & UI/UX prototypes.",
+    n: "02",
+  },
+  {
+    icon: "⚙️",
+    title: "Develop",
+    desc: "Agile sprints, weekly demos.",
+    n: "03",
+  },
+  { icon: "🧪", title: "Test", desc: "QA, performance & security.", n: "04" },
+  {
+    icon: "🚀",
+    title: "Deploy",
+    desc: "Launch with CI/CD & monitoring.",
+    n: "05",
+  },
+];
 
 const TICKER_ITEMS = [
-  'MERN STACK', '◆', 'SEO MASTERY', '◆', 'AI VIDEOS', '◆', 'BRANDING', '◆',
-  'LARAVEL', '◆', 'WORDPRESS', '◆', 'DEVOPS', '◆', 'SOCIAL MEDIA', '◆',
-  'MERN STACK', '◆', 'SEO MASTERY', '◆', 'AI VIDEOS', '◆', 'BRANDING', '◆',
-  'LARAVEL', '◆', 'WORDPRESS', '◆', 'DEVOPS', '◆', 'SOCIAL MEDIA', '◆',
-]
+  "MERN STACK",
+  "◆",
+  "SEO MASTERY",
+  "◆",
+  "AI VIDEOS",
+  "◆",
+  "BRANDING",
+  "◆",
+  "LARAVEL",
+  "◆",
+  "WORDPRESS",
+  "◆",
+  "DEVOPS",
+  "◆",
+  "SOCIAL MEDIA",
+  "◆",
+  "MERN STACK",
+  "◆",
+  "SEO MASTERY",
+  "◆",
+  "AI VIDEOS",
+  "◆",
+  "BRANDING",
+  "◆",
+  "LARAVEL",
+  "◆",
+  "WORDPRESS",
+  "◆",
+  "DEVOPS",
+  "◆",
+  "SOCIAL MEDIA",
+  "◆",
+];
 
 export default function Services() {
   return (
@@ -142,7 +251,6 @@ export default function Services() {
       <section className="services-hero">
         <div className="video-background">
           <video autoPlay loop muted playsInline className="hero-video">
-          
             <source src="/services.mp4" type="video/mp4" />
           </video>
           <div className="video-overlay"></div>
@@ -151,24 +259,32 @@ export default function Services() {
         <div className="services-hero-gradient" />
         <div className="services-hero-content">
           <div className="section-tag">✦ Our Expertise</div>
-          <h1>Services That <span>Transform</span> Businesses</h1>
+          <h1>
+            Services That <span>Transform</span> Businesses
+          </h1>
           <p>
             From full-stack development to AI-powered videos — KITECHX is your
-            end-to-end digital partner. Nine specialized services, one unified vision.
+            end-to-end digital partner. Nine specialized services, one unified
+            vision.
           </p>
         </div>
       </section>
 
-            {/* SERVICES GRID */}
+      {/* SERVICES GRID */}
       <section className="services-main">
         <div className="section-header">
           <div className="section-tag">✦ What We Deliver</div>
-          <h2 className="section-title">Nine Services, <span>One Agency</span></h2>
-          <p>Each service is led by specialists with proven track records — no generalists, no compromises.</p>
+          <h2 className="section-title">
+            Nine Services, <span>One Agency</span>
+          </h2>
+          <p>
+            Each service is led by specialists with proven track records — no
+            generalists, no compromises.
+          </p>
         </div>
 
         <div className="services-grid">
-          {SERVICES.map(s => (
+          {SERVICES.map((s) => (
             <div key={s.label} className="svc-card">
               {/* IMAGE AREA */}
               <div className="svc-image-wrap">
@@ -178,13 +294,13 @@ export default function Services() {
                     alt={s.label}
                     className="svc-real-img"
                     onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                      e.currentTarget.nextElementSibling.style.display = 'flex'
+                      e.currentTarget.style.display = "none";
+                      e.currentTarget.nextElementSibling.style.display = "flex";
                     }}
                   />
                 ) : (
                   <div className="svc-image-bg" style={{ background: s.imgBg }}>
-                    <span style={{ fontSize: '6rem' }}>{s.emoji}</span>
+                    <span style={{ fontSize: "6rem" }}>{s.emoji}</span>
                   </div>
                 )}
                 <div className="svc-image-overlay" />
@@ -204,7 +320,7 @@ export default function Services() {
                 <p>{s.desc}</p>
 
                 <div className="svc-features">
-                  {s.features.map(f => (
+                  {s.features.map((f) => (
                     <div key={f} className="svc-feature">
                       <span className="svc-feature-dot" />
                       {f}
@@ -223,18 +339,29 @@ export default function Services() {
 
       {/* WHY US */}
       <section className="why-section">
-        <div className="blob blob-purple" style={{ width: 500, height: 500, top: '50%', right: '-100px', transform: 'translateY(-50%)' }} />
+        <div
+          className="blob blob-purple"
+          style={{
+            width: 500,
+            height: 500,
+            top: "50%",
+            right: "-100px",
+            transform: "translateY(-50%)",
+          }}
+        />
         <div className="why-grid">
-          <div className="why-left" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="why-left" style={{ position: "relative", zIndex: 1 }}>
             <div className="section-tag">✦ Why Choose Us</div>
-            <h2>Built For <span>Results</span>, Not Just Deliverables</h2>
+            <h2>
+              Built For <span>Results</span>, Not Just Deliverables
+            </h2>
             <p>
               We don't just ship code and designs. We build long-term digital
               partnerships that deliver measurable impact for your business —
               from day one through every milestone.
             </p>
             <div className="why-points">
-              {WHY_POINTS.map(wp => (
+              {WHY_POINTS.map((wp) => (
                 <div key={wp.title} className="why-point">
                   <div className="why-point-icon">{wp.icon}</div>
                   <div className="why-point-text">
@@ -246,7 +373,10 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="why-right" style={{ position: 'relative', zIndex: 1 }}>
+          <div
+            className="why-right"
+            style={{ position: "relative", zIndex: 1 }}
+          >
             <div className="why-stat-card">
               <div className="why-stat-num">100%</div>
               <div className="why-stat-label">Client Satisfaction Rate</div>
@@ -259,13 +389,44 @@ export default function Services() {
               <div className="why-stat-num">10+</div>
               <div className="why-stat-label">Countries Served</div>
             </div>
-            <div className="why-stat-card" style={{ gridColumn: '1/-1' }}>
-              <div style={{ marginBottom: '1rem', fontSize: '2.5rem' }}>🏆</div>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.1rem', color: 'rgba(255,255,255,0.95)', marginBottom: '0.4rem' }}>
+            <div
+              className="why-stat-card"
+              style={{
+                gridColumn: "1 / -1",
+                background:
+                  "linear-gradient(135deg, var(--clr-primary), var(--clr-primary-deep))",
+                border: "1px solid rgba(91, 63, 248, 0.3)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                padding: "2.5rem 2rem",
+                borderRadius: "var(--radius-lg)",
+              }}
+            >
+              <div style={{ marginBottom: "1rem", fontSize: "2.5rem" }}>🏆</div>
+              <div
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 800,
+                  fontSize: "1.2rem",
+                  color: "#ffffff",
+                  marginBottom: "0.5rem",
+                }}
+              >
                 Award-Worthy Work
               </div>
-              <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>
-                Every project is crafted with the precision and ambition of an award entry.
+              <div
+                style={{
+                  fontSize: "0.88rem",
+                  color: "rgba(255, 255, 255, 0.85)",
+                  lineHeight: 1.7,
+                  maxWidth: "360px",
+                }}
+              >
+                Every project is crafted with the precision and ambition of an
+                award entry.
               </div>
             </div>
           </div>
@@ -276,11 +437,16 @@ export default function Services() {
       <section className="process-section">
         <div className="section-header">
           <div className="section-tag">✦ How We Work</div>
-          <h2 className="section-title">Our Battle-Tested <span>Process</span></h2>
-          <p>A disciplined, transparent workflow that consistently delivers exceptional results on time.</p>
+          <h2 className="section-title">
+            Our Battle-Tested <span>Process</span>
+          </h2>
+          <p>
+            A disciplined, transparent workflow that consistently delivers
+            exceptional results on time.
+          </p>
         </div>
         <div className="process-steps">
-          {PROCESS.map(s => (
+          {PROCESS.map((s) => (
             <div key={s.title} className="process-step">
               <div className="step-circle">{s.icon}</div>
               <div className="step-num">{s.n}</div>
@@ -289,10 +455,12 @@ export default function Services() {
             </div>
           ))}
         </div>
-        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-          <Link to="/contact" className="btn-primary">Start a Project →</Link>
+        <div style={{ textAlign: "center", marginTop: "3.5rem" }}>
+          <Link to="/contact" className="btn-primary">
+            Start a Project →
+          </Link>
         </div>
       </section>
     </main>
-  )
+  );
 }
